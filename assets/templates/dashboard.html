@@ -1,0 +1,20 @@
+{{define "dashboard.html"}}
+{{template "layout.html" .}}
+
+{{define "content"}}
+<section class="dashboard">
+    <h1>Dashboard</h1>
+
+    <div class="stats-grid" id="stats">
+        {{template "partials/stats.html" .}}
+    </div>
+
+    <p>
+        Stats auto-refresh every 30 seconds via HTMX:
+    </p>
+    <div hx-get="/partials/stats" hx-trigger="every 30s" hx-swap="innerHTML">
+        Loading fresh stats...
+    </div>
+</section>
+{{end}}
+{{end}}
