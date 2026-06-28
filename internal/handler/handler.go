@@ -30,7 +30,7 @@ func Dashboard(tmpl *template.Templates) http.HandlerFunc {
 			"ActiveUsers":   42,
 			"Uptime":        "3d 14h",
 		}
-		if err := tmpl.RenderPage(w, "dashboard.html", data); err != nil {
+		if err := tmpl.RenderPage(w, "layout.html", data); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 	}
